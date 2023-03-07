@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_info.xsd">
+    <TargetSet version="3.4">
+        <AreaTarget version="5.0" bbox="-3.6086 -1.7537 -5.4280 4.6563 0.4410 1.7192" targetId="b5cc6584b54f4ef8ba9cb9472a85c7cf" name="JamesNewScan" pathAuthoring="b5cc6584b54f4ef8ba9cb9472a85c7cf_authoring.glb" pathOcclusion="b5cc6584b54f4ef8ba9cb9472a85c7cf_occlusion.3dt" pathNavMesh="b5cc6584b54f4ef8ba9cb9472a85c7cf_navmesh.glb" />
+    </TargetSet>
+</QCARInfo>
