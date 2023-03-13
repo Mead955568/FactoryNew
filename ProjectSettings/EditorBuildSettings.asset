@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/DoubleTwin.unity
+    guid: 2e4cc53845299bc4c82f84c13ecb0ce8
   m_configObjects: {}
