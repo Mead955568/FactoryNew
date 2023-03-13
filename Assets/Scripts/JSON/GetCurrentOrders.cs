@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using TMPro;
 
 
-public class FinishedOrders: MonoBehaviour
+public class GetCurrentOrders : MonoBehaviour
 {
-    public List<string> CurrentOrderData = new List<string>();    
+    public List<string> GetOrderData = new List<string>();    
 
-    public FinishedOrdersJSON[] finishedOrdersObjectArray;      
+    public GetOrdersJSON[] getOrdersObjectArray;      
 
     public string listInfo;                                  
 
@@ -22,23 +22,23 @@ public class FinishedOrders: MonoBehaviour
     {
         string newCurrentOrderStringPHPMany = fixJson(CurrentOrderStringPHPMany);     
 
-        Debug.LogWarning(newCurrentOrderStringPHPMany);
+        Debug.LogWarning(newCurrentOrderStringPHPMany);                                    
 
-        finishedOrdersObjectArray = JsonHelper.FromJson<FinishedOrdersJSON>(newCurrentOrderStringPHPMany);    
+        getOrdersObjectArray = JsonHelper.FromJson<GetOrdersJSON>(newCurrentOrderStringPHPMany);    
 
-        CurrentOrderData.Clear();                                                
+        GetOrderData.Clear();                                                
         listInfo = "";                                                              
 
-        for (int i = 0; i < finishedOrdersObjectArray.Length; i++)                     
+        for (int i = 0; i < getOrdersObjectArray.Length; i++)                     
         {
-            //Debug.LogWarning("ONo:" + finishedOrdersObjectArray[i].ONo + ", Company:" + finishedOrdersObjectArray[i].Company + ", Planned Start:" + finishedOrdersObjectArray[i].PlannedStart + ", Planned End:" + currentOrdersObjectArray[i].PlannedEnd + ", State:" + currentOrdersObjectArray[i].State);
+            Debug.LogWarning("ONo:" + getOrdersObjectArray[i].PNo + ", Description:" + getOrdersObjectArray[i].Description);
 
             //CurrentOrderData.Add("Order Number: " + currentOrdersObjectArray[i].ONo + ", Company Name: " + currentOrdersObjectArray[i].Company + ", Planned Start Time: " + currentOrdersObjectArray[i].PlannedStart + ", Planned End Time: " + currentOrdersObjectArray[i].PlannedEnd + ", Build State: " + currentOrdersObjectArray[i].State);
             
-            CurrentOrderData.Add("Finished Orders" + "\n"+ "Order Number: " + finishedOrdersObjectArray[i].ONo);
+            GetOrderData.Add("Get CurrentOrders" + "\n" + "CurrentOrder Number: " + getOrdersObjectArray[i].PNo + "Description: " + getOrdersObjectArray[i].Description);
         }
 
-        foreach(var listMember in CurrentOrderData)                 
+        foreach(var listMember in GetOrderData)                 
         {
             listInfo += listMember.ToString() + "\n" + "\n";    
         }
@@ -79,7 +79,7 @@ public class FinishedOrders: MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                     ReceieveData(webRequest.downloadHandler.text);
-                    Debug.LogError("Finished Orders Success");
+                    Debug.LogError("GetCurrent Orders Success");
 
                     break;
             }
