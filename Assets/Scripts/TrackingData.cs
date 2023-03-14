@@ -24,6 +24,9 @@ public class TrackingData : MonoBehaviour
     private float timer = 0.0f;
     public GameObject SpawnPoint;
 
+    public Vector3 targetPosition;
+    public float moveTime = 1f;
+
     public TMP_Text uiFeedbackTMP;
     void Start()
     {
@@ -71,66 +74,68 @@ public class TrackingData : MonoBehaviour
                 timer = 0.0f;
 
                 uiFeedbackTMP.text = dataFromOPCUANode;
-                if (dataFromOPCUANode == "1")
-                {
-                    Debug.Log("1 at machine 1");
+                //if (dataFromOPCUANode == "1")
+                //{
+                    //Debug.Log("1 at machine 1");
                     GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "2")
-                {
-                    Debug.Log("2 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "3")
-                {
-                    Debug.Log("3 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "4")
-                {
-                    Debug.Log("4 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "5")
-                {
-                    Debug.Log("5 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "6")
-                {
-                    Debug.Log("6 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "7")
-                {
-                    Debug.Log("7 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "8")
-                {
-                    Debug.Log("8 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "9")
-                {
-                    Debug.Log("9 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                    StartCoroutine(CountdownDestroy(newPrefab));
-                }
-                if (dataFromOPCUANode == "10")
-                {
-                    Debug.Log("10 at machine 1");
-                    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                StartCoroutine(MoveObjectOverTime());
+
                 StartCoroutine(CountdownDestroy(newPrefab));
-                }
+                //}
+                //if (dataFromOPCUANode == "2")
+                //{
+                //    Debug.Log("2 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "3")
+                //{
+                //    Debug.Log("3 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "4")
+                //{
+                //    Debug.Log("4 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "5")
+                //{
+                //    Debug.Log("5 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "6")
+                //{
+                //    Debug.Log("6 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "7")
+                //{
+                //    Debug.Log("7 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "8")
+                //{
+                //    Debug.Log("8 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "9")
+                //{
+                //    Debug.Log("9 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //    StartCoroutine(CountdownDestroy(newPrefab));
+                //}
+                //if (dataFromOPCUANode == "10")
+                //{
+                //    Debug.Log("10 at machine 1");
+                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+                //StartCoroutine(CountdownDestroy(newPrefab));
+                //}
             }
         }
     }
@@ -139,6 +144,19 @@ public class TrackingData : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         Destroy(ObjectToDestroy);
     }
-    
+    public IEnumerator MoveObjectOverTime()
+    {
+        Vector3 startPosition = transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < moveTime)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / moveTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+    }
 }
 
