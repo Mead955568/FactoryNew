@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SaftyCheck : MonoBehaviour
-{
+{//This Script is to check if there is an unidentified object within the machine
 [Header("Factory Machine")]
 public string factoryMachineID;
 public OPCUA_Interface Interface;
@@ -62,7 +62,7 @@ private void Update()
 
         if (dataFromOPCUANode == "False")
         {
-            if (!error.isPlaying)
+            if (!error.isPlaying) //Stops the music from repeating
             {
                 error.Play();
                 Debug.Log("Hand in Machine");

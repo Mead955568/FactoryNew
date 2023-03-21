@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneSwitchTwin : MonoBehaviour
-{
+{// This script just switchs the scene between the Twin and back to the camera
     public GameObject Cam1;
     public GameObject Cam2;
 

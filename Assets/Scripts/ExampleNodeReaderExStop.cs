@@ -17,6 +17,7 @@ public class ExampleNodeReaderExStop : MonoBehaviour
     //public TMP_Text digitalTwinFeedbackTMP;
     public GameObject uiColourObject;
     public string dataFromOPCUANode;
+    //Colours
     public Color goodColour;
     public Color badColour;
     MeshRenderer myRenderer;
@@ -58,7 +59,7 @@ public class ExampleNodeReaderExStop : MonoBehaviour
 
 
     private void Update()
-    {
+    { //This is checking if the Emergency Stop button has been pressed
         if (dataFromOPCUANode == "False")
         {
             myRenderer.material.color = badColour;

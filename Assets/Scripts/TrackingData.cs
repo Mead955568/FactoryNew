@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 public class TrackingData : MonoBehaviour
-{
+{//This Script is for tracking the carts by spawning a gameobject when they pass a sensor
     [Header("Factory Machine")]
     public string factoryMachineID;
     public OPCUA_Interface Interface;
@@ -71,7 +71,7 @@ public class TrackingData : MonoBehaviour
 
             if (timer >= startTime)
             {
-                timer = 0.0f;
+                timer = 0.0f; //This is not working as intended, timing is not right
 
                 uiFeedbackTMP.text = dataFromOPCUANode;
                 //if (dataFromOPCUANode == "1")
@@ -81,61 +81,6 @@ public class TrackingData : MonoBehaviour
                 StartCoroutine(MoveObjectOverTime());
 
                 StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "2")
-                //{
-                //    Debug.Log("2 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "3")
-                //{
-                //    Debug.Log("3 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "4")
-                //{
-                //    Debug.Log("4 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "5")
-                //{
-                //    Debug.Log("5 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "6")
-                //{
-                //    Debug.Log("6 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "7")
-                //{
-                //    Debug.Log("7 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "8")
-                //{
-                //    Debug.Log("8 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "9")
-                //{
-                //    Debug.Log("9 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //    StartCoroutine(CountdownDestroy(newPrefab));
-                //}
-                //if (dataFromOPCUANode == "10")
-                //{
-                //    Debug.Log("10 at machine 1");
-                //    GameObject newPrefab = Instantiate(prefabToSpawn, SpawnPoint.transform.position, Quaternion.identity);
-                //StartCoroutine(CountdownDestroy(newPrefab));
-                //}
             }
         }
     }
@@ -144,7 +89,7 @@ public class TrackingData : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         Destroy(ObjectToDestroy);
     }
-    public IEnumerator MoveObjectOverTime()
+    public IEnumerator MoveObjectOverTime() //This script is my attempt to make the gameobjects to move when they spawn but does not work
     {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;

@@ -134,6 +134,8 @@ public class OrderOptions : MonoBehaviour
     /// <summary> 
     // Call this method from somewhere in your app to place a new order
     /// <summary> 
+    /// 
+    // Theses lines of code below check are for ordering phones from the factory
     public void SendOrder1ToFactory()
     {
         newOrderMessage = "444;RequestID=0;MClass=101;MNo=2;ErrorState=0;#PNo= " + partNumber1 + ";#Aux1Int=" + qty.ToString() + "\r";
